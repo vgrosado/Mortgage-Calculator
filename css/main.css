@@ -9,7 +9,9 @@
     --battleship-gray: #808B8Eff;
     --cadet-gray-2: #8A959Eff;
     --azure-web: #E1F5FBff;
+    --paynes-gray: #61767Bff;
     --beige: #FAFAE0ff;
+    --red: #DB3129;
 }
 
 @font-face {
@@ -24,16 +26,74 @@
 
 * {
     font-family: Jakarta-Sans;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 2rem 1rem ;
 }
 
 label {
     color: var(--cadet-gray-2);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: .5rem;
 }
 
 input {
+    color: var(--gunmetal-2);
+    font-weight: bold;
+    border: none;
+    padding: .5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {  
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input:focus-visible {
+    outline: none;  
+}
+
+.calculator__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.input__wrapper {
+    display: flex;
+    justify-content: space-between;
     border: 2px solid var(--silver);
     border-radius: 4px;
     background-color: white;
-    color: var(--gunmetal-2);
+    margin-top: .5rem;
+}
+
+.input__wrapper--error {
+    border: 2px solid var(--red);
+}
+
+.input__wrapper > input {
+    width: 100%;
+}
+
+.input__unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--alice-blue);
+    color: var(--paynes-gray);
+    padding: 3vw;
     font-weight: bold;
 }
+
+.input__unit--error {
+    border: 2px solid var(--red);
+    color: white;
+}
+

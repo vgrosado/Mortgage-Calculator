@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script defer src="./scripts/index.js"></script>
     <title>Mortgage Calculator</title>
 </head>
+
 <body>
     <main>
         <!-- calculator -->
@@ -17,13 +19,22 @@
             </div>
             <form class="calculator__form">
                 <label for="amount">Mortage Amount
-                    <input type="number"></input>
+                    <div class="input__wrapper">
+                        <div class="input__unit">$</div>
+                        <input type="number"></input>
+                    </div>
                 </label>
                 <label for="amount">Mortgage Term
-                    <input type="number"></input>
+                    <div class="input__wrapper">
+                        <input type="number"></input>
+                        <div class="input__unit">years</div>
+                    </div>
                 </label>
                 <label for="amount"> Interest Rate
-                    <input type="number"></input>
+                    <div class="input__wrapper">
+                        <input type="number"></input>
+                        <div class="input__unit">%</div>
+                    </div>
                 </label>
                 <div class="calculator__mortgage-type">
                     <label for="type"> Mortage Type
@@ -41,4 +52,5 @@
         </section>
     </main>
 </body>
+
 </html>
