@@ -1,0 +1,32 @@
+:root {
+    --vanilla: #E8E9A1ff;
+    --gunmetal: #0E2431ff;
+    --pear: #D8DC2Cff;
+    --alice-blue: #E3F4FCff;
+    --cadet-gray: #89A4B5ff;
+    --gunmetal-2: #133040ff;
+    --battleship-gray: #808B8Eff;
+    --cadet-gray-2: #8A959Eff;
+    --azure-web: #E1F5FBff;
+    --beige: #FAFAE0ff;
+}
+
+@font-face {
+    font-family: Jakarta-Sans;
+    src: url("../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf"), format("truetype");
+}
+
+@font-face {
+    font-family: Jakarta-Sans-Italic;
+    src: url("../assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf") format("truetype"); 
+}
+
+* {
+    font-family: Jakarta-Sans;
+}
+
+label {
+    color: var(--cadet-gray-2);
+}
+
+
