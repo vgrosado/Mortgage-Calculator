@@ -5,6 +5,7 @@
     --alice-blue: #E3F4FCff;
     --cadet-gray: #89A4B5ff;
     --gunmetal-2: #133040ff;
+    --silver: #C1CED0ff;
     --battleship-gray: #808B8Eff;
     --cadet-gray-2: #8A959Eff;
     --azure-web: #E1F5FBff;
@@ -29,4 +30,10 @@ label {
     color: var(--cadet-gray-2);
 }
 
-
+input {
+    border: 2px solid var(--silver);
+    border-radius: 4px;
+    background-color: white;
+    color: var(--gunmetal-2);
+    font-weight: bold;
+}
