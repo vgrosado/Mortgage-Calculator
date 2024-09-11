@@ -1,3 +1,4 @@
+
 function calculateMortgage(cost, term, interest, type) {
 
     //convert percentage to decimal

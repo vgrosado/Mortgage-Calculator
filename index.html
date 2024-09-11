@@ -8,6 +8,37 @@
     <title>Mortgage Calculator</title>
 </head>
 <body>
-    
+    <main>
+        <!-- calculator -->
+        <section class="calculator">
+            <div class="calculator__heading-wrapper">
+                <h3 class="calculator__heading">Mortage Calculator</h3>
+                <button class="calculator__resut-button">Clear All</button>
+            </div>
+            <form class="calculator__form">
+                <label for="amount">Mortage Amount
+                    <input type="number"></input>
+                </label>
+                <label for="amount">Mortgage Term
+                    <input type="number"></input>
+                </label>
+                <label for="amount"> Interest Rate
+                    <input type="number"></input>
+                </label>
+                <div class="calculator__mortgage-type">
+                    <label for="type"> Mortage Type
+                        <input type="radio" value="Repayment">Repayment</input>
+                        <input type="radio" value="Interest-Only">Interest Only</input>
+                    </label>
+                </div>
+                <button class="calculator__button" type="submit">Calculate Repayments</button>
+            </form>
+        </section>
+
+        <!-- results -->
+        <section class="results">
+
+        </section>
+    </main>
 </body>
 </html>
