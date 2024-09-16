@@ -18,26 +18,26 @@
                 <button class="calculator__resut-button">Clear All</button>
             </div>
             <form class="calculator__form">
-                <label for="amount">Mortage Amount
-                    <div class="input__wrapper">
+                <label for="amount" class="input__label">Mortage Amount
+                    <div class="input__wrapper" id="cost">
                         <div class="input__unit">$</div>
-                        <input type="number"></input>
+                        <input type="number" id="cost"></input>
                     </div>
                 </label>
-                <label for="amount">Mortgage Term
-                    <div class="input__wrapper">
-                        <input type="number"></input>
+                <label for="term" class="input__label">Mortgage Term
+                    <div class="input__wrapper" id="term">
+                        <input type="number" id="term" value=""></input>
                         <div class="input__unit">years</div>
                     </div>
                 </label>
-                <label for="amount"> Interest Rate
-                    <div class="input__wrapper">
-                        <input type="number"></input>
+                <label for="rate" class="input__label"> Interest Rate
+                    <div class="input__wrapper" id="rate">
+                        <input type="number" id="rate" value=""></input>
                         <div class="input__unit">%</div>
                     </div>
                 </label>
                 <div class="calculator__mortgage-type">
-                    <label for="type"> Mortage Type
+                    <label for="type" class="input__label"> Mortage Type
                         <input type="radio" value="Repayment">Repayment</input>
                         <input type="radio" value="Interest-Only">Interest Only</input>
                     </label>
