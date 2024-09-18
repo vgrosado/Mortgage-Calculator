@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: Jakarta-Sans-Italic;
-    src: url("../assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf") format("truetype"); 
+    src: url("../assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf") format("truetype");
 }
 
 * {
@@ -31,14 +31,13 @@
 }
 
 main {
-    padding: 2rem 1rem ;
+    padding: 2rem 1rem;
 }
 
 label {
     color: var(--cadet-gray-2);
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: .5rem;
 }
 
 input {
@@ -49,13 +48,13 @@ input {
 }
 
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {  
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
+    margin: 0;
 }
 
 input:focus-visible {
-    outline: none;  
+    outline: none;
 }
 
 .calculator__form {
@@ -74,11 +73,15 @@ input:focus-visible {
     margin-top: .5rem;
 }
 
+.input__label {
+    margin-bottom: .5rem;
+}
+
 .input__wrapper--error {
     border: 2px solid var(--red);
 }
 
-.input__wrapper > input {
+.input__wrapper>input {
     width: 100%;
 }
 
@@ -88,12 +91,64 @@ input:focus-visible {
     justify-content: center;
     background-color: var(--alice-blue);
     color: var(--paynes-gray);
-    padding: 3vw;
-    font-weight: bold;
+    padding: 3vw 3.5vw;
+    font-weight: 500;
 }
 
 .input__unit--error {
-    border: 2px solid var(--red);
+    background-color: var(--red);
     color: white;
 }
 
+.input__error-msg {
+    color: var(--red);
+    margin-top: .5rem;
+    font-size: .75rem;
+}
+
+.input__type-error {
+    color: var(--red);
+    margin-top: .5rem;
+    font-size: .75rem;
+    font-weight: bold;
+}
+
+.calculator__mortgage-type-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.input__radio-wrapper {
+    color: var(--gunmetal);
+    font-size: 1rem;
+    border: 2px solid var(--silver);
+    border-radius: 4px;
+    padding: .75rem;
+    margin-bottom: .5rem;
+}
+
+.input__radio-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--gunmetal-2);
+}
+
+.input__radio--checked{
+    background-color: var(--vanilla);
+    border-color: var(--pear);
+}
+
+.calculator__radio-input {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid var(--silver);
+}
+
+.calculator__radio-input:checked {
+    background-color: var(--pear);
+    outline: max(2px, 0.15em) solid var(--pear);
+    border: 2px solid var(--vanilla);
+}

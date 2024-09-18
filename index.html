@@ -17,32 +17,43 @@
                 <h3 class="calculator__heading">Mortage Calculator</h3>
                 <button class="calculator__resut-button">Clear All</button>
             </div>
-            <form class="calculator__form">
+            <form class="calculator__form" id="calculator">
                 <label for="amount" class="input__label">Mortage Amount
-                    <div class="input__wrapper" id="cost">
+                    <div class="input__wrapper">
                         <div class="input__unit">$</div>
-                        <input type="number" id="cost"></input>
+                        <input type="number" id="amount" name="amount"></input>
                     </div>
                 </label>
                 <label for="term" class="input__label">Mortgage Term
                     <div class="input__wrapper" id="term">
-                        <input type="number" id="term" value=""></input>
+                        <input type="number" id="term" name="term"></input>
                         <div class="input__unit">years</div>
                     </div>
                 </label>
                 <label for="rate" class="input__label"> Interest Rate
                     <div class="input__wrapper" id="rate">
-                        <input type="number" id="rate" value=""></input>
+                        <input type="number" id="rate" name="rate"></input>
                         <div class="input__unit">%</div>
                     </div>
                 </label>
-                <div class="calculator__mortgage-type">
-                    <label for="type" class="input__label"> Mortage Type
-                        <input type="radio" value="Repayment">Repayment</input>
-                        <input type="radio" value="Interest-Only">Interest Only</input>
-                    </label>
+                <!-- radio buttons -->
+                <div class="calculator__mortgage-type-wrapper">
+                    <label class="input__label">Mortage Type</label>
+
+                    <div class="input__radio-wrapper ">
+                        <label for="radio" class="input__radio-label">
+                            <input class="calculator__radio-input" type="radio" name="type" value="repayment" id="repayment"> Repayment</input>
+                        </label>
+                    </div>
+
+                    <div class="input__radio-wrapper">
+                        <label for="radio" class="input__radio-label">
+                            <input class="calculator__radio-input" type="radio" name="type" value="interest" id="interest"> Interest Only</input>
+                        </label>
+                    </div>
+
                 </div>
-                <button class="calculator__button" type="submit">Calculate Repayments</button>
+                <button class="calculator__button" id="submit" type="submit" >Calculate Repayments</button>
             </form>
         </section>
 
