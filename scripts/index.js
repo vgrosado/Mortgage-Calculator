@@ -3,20 +3,8 @@ const typeWrapper = document.querySelector(".calculator__mortgage-type-wrapper")
 const inp = document.getElementsByTagName("input");
 const radioInp = document.querySelectorAll('input[name="type"]');
 const form = document.querySelector(".calculator__form");
-
-
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const formObject = {};
-    formData.forEach((value, key) => {
-        formObject[key] = value;
-    });
-
-    console.log(formObject.type)
-    calculateMortgage(formObject)
-})
+const submit = document.getElementById("submit");
+const results = document.querySelector(".results");
 
 //convert input node into an iteratable array
 let radios = Array.from(radioInp);
@@ -27,6 +15,69 @@ console.log(inputs);
 //convert wrapper node into an iteratable array
 let wrappers = Array.from(inputWrappers);
 console.log(wrappers);
+
+
+
+inputs.forEach((input) => {
+    const parent = input.parentElement;
+    const label = parent.parentElement;
+    const unit = parent.getElementsByClassName('input__unit')[0];
+    
+    input.addEventListener("input", (event) => {
+        const val = event.target.value;
+        checkInputs(val, parent, label, unit); // Validate in real-time
+    });
+});
+
+// Submit event to validate all inputs and prevent submission if there are errors
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    let hasError = false; // Flag to track if any input is invalid
+    
+    // Validate all inputs on form submission
+    inputs.forEach((input) => {
+        const parent = input.parentElement;
+        const label = parent.parentElement;
+        const unit = parent.getElementsByClassName('input__unit')[0];
+        const val = input.value.trim();
+        
+        checkInputs(val, parent, label, unit); // Apply validation again
+
+        // If any input is empty, set hasError to true
+        if (!val) {
+            hasError = true;
+        }
+    });
+
+    // Validate radio inputs (Mortgage type)
+    let typeError = document.querySelector(".input__type-error");
+    const selectedRadio = radios.find(radio => radio.checked); // Check if a radio input is selected
+    if (!selectedRadio) {
+        hasError = true; // No radio selected, set error flag
+        if (!typeError) {
+            typeError = document.createElement("p");
+            typeError.innerText = "This field is required";
+            typeError.classList.add("input__type-error");
+            typeWrapper.appendChild(typeError);
+        }
+    } else {
+        if (typeError) {
+            typeWrapper.removeChild(typeError); // Remove error message if a radio is selected
+        }
+    }
+
+    // If there are no errors, process the form
+    if (!hasError) {
+        const formData = new FormData(form);
+        const formObject = {};
+        formData.forEach((value, key) => {
+            formObject[key] = value;
+        });
+        
+        calculateMortgage(formObject); // Pass formObject to mortgage calculation
+    }
+});
 
 //validation function that checks for input value and applies error styling to respective input and their wrappers.
 function checkInputs(value, parent, label, unit) {
@@ -96,7 +147,14 @@ inputs.forEach((input) => {
     })
 })
 
+function createPayment(mortgage) {
+    const payment = document.createElement("p")
+    payment.innerText = mortgage.monthly;
+    results.appendChild(payment)
+}
+
 function calculateMortgage(formObj) {
+    console.log(formObj)
     let typeError = document.querySelector(".input__type-error");
     if(formObj.type === undefined) {
         if (!typeError) {
@@ -137,10 +195,11 @@ function calculateMortgage(formObj) {
         interest: convertPayment.format(interestOnly)
     }
 
+    createPayment(repayment)
+
     if (formObj.type === "interest") {
         return console.log(repayment.interest);
     } else {
         return console.log(repayment);
     }
-
 }
