@@ -145,7 +145,8 @@ input:focus-visible {
     align-items: center;
     gap: 1rem;
     color: var(--gunmetal-2);
-    font-weight: 800 !important;
+    font-weight: 700 !important;
+    font-size: 1rem;
 }
 
 .input__radio--checked{
