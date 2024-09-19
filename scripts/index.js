@@ -1,6 +1,6 @@
 const inputWrappers = document.querySelectorAll(".input__wrapper");
 const typeWrapper = document.querySelector(".calculator__mortgage-type-wrapper");
-const inp = document.getElementsByTagName("input");
+const inp = document.querySelectorAll("#input");
 const radioInp = document.querySelectorAll('input[name="type"]');
 const form = document.querySelector(".calculator__form");
 const submit = document.getElementById("submit");
@@ -148,7 +148,7 @@ inputs.forEach((input) => {
 })
 
 function createPayment(mortgage) {
-    const payment = document.createElement("p")
+    const payment = document.querySelector(".results__payment")
     payment.innerText = mortgage.monthly;
     results.appendChild(payment)
 }
@@ -202,4 +202,10 @@ function calculateMortgage(formObj) {
     } else {
         return console.log(repayment);
     }
+}
+
+function clearAll() {
+    inputs.forEach((input) => {
+        input.value = "";
+    })
 }

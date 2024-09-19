@@ -16,24 +16,24 @@
         <section class="calculator">
             <div class="calculator__heading-wrapper">
                 <h3 class="calculator__heading">Mortage Calculator</h3>
-                <button class="calculator__resut-button">Clear All</button>
+                <button class="calculator__resut-button" onclick="clearAll()">Clear All</button>
             </div>
             <form class="calculator__form" id="calculator">
                 <label for="amount" class="input__label">Mortage Amount
                     <div class="input__wrapper">
                         <div class="input__unit">$</div>
-                        <input type="number" id="amount" name="amount"></input>
+                        <input type="number" id="input" name="amount"></input>
                     </div>
                 </label>
                 <label for="term" class="input__label">Mortgage Term
                     <div class="input__wrapper" id="term">
-                        <input type="number" id="term" min="1" max="40" name="term"></input>
+                        <input type="number" id="input" min="1" max="40" name="term"></input>
                         <div class="input__unit">years</div>
                     </div>
                 </label>
                 <label for="rate" class="input__label"> Interest Rate
                     <div class="input__wrapper" id="rate">
-                        <input type="number" step="0.01" id="rate" name="rate"></input>
+                        <input type="number" step="0.01" id="input" name="rate"></input>
                         <div class="input__unit">%</div>
                     </div>
                 </label>
@@ -61,7 +61,7 @@
 
         <!-- results -->
         <section class="results">
-
+            <p class="results__payment"></p>
         </section>
     </main>
 </body>
