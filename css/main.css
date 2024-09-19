@@ -30,9 +30,6 @@
     padding: 0;
 }
 
-main {
-    padding: 2rem 1rem;
-}
 
 label {
     color: var(--cadet-gray-2);
@@ -55,6 +52,10 @@ input::-webkit-inner-spin-button {
 
 input:focus-visible {
     outline: none;
+}
+
+.calculator {
+    padding: 2rem 1rem;
 }
 
 .calculator__heading {
@@ -179,5 +180,27 @@ input:focus-visible {
     align-items: center;
     justify-content: center;
     gap: .5rem;
+}
+
+.results {
+    background-color: var(--gunmetal-2);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.results__heading {
+    color: white;
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+.results__instructions {
+    color: var(--cadet-gray);
+    text-align: center;
+    font-size: .875rem;
+    margin-top: 1rem;
 }
 
