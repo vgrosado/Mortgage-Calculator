@@ -13,58 +13,87 @@
     <main>
 
         <!-- calculator -->
-        <section class="calculator">
-            <div class="calculator__heading-wrapper">
-                <h3 class="calculator__heading">Mortage Calculator</h3>
-                <button class="calculator__reset-button" onclick="clearAll()">Clear All</button>
-            </div>
-            <form class="calculator__form" id="calculator">
-                <label for="amount" class="input__label">Mortage Amount
-                    <div class="input__wrapper">
-                        <div class="input__unit">$</div>
-                        <input type="number" id="input" name="amount"></input>
-                    </div>
-                </label>
-                <label for="term" class="input__label">Mortgage Term
-                    <div class="input__wrapper" id="term">
-                        <input type="number" id="input" min="1" max="40" name="term"></input>
-                        <div class="input__unit">years</div>
-                    </div>
-                </label>
-                <label for="rate" class="input__label"> Interest Rate
-                    <div class="input__wrapper" id="rate">
-                        <input type="number" step="0.01" id="input" name="rate"></input>
-                        <div class="input__unit">%</div>
-                    </div>
-                </label>
-
-                <!-- radio buttons -->
-                <div class="calculator__mortgage-type-wrapper">
-                    <label class="input__label">Mortage Type</label>
-
-                    <div class="input__radio-wrapper ">
-                        <label for="radio" class="input__radio-label">
-                            <input class="calculator__radio-input" type="radio" name="type" value="repayment" id="repayment"> Repayment</input>
-                        </label>
-                    </div>
-
-                    <div class="input__radio-wrapper">
-                        <label for="radio" class="input__radio-label">
-                            <input class="calculator__radio-input" type="radio" name="type" value="interest" id="interest"> Interest Only</input>
-                        </label>
-                    </div>
-
+        <section class="calculator__wrapper">
+            <div class="calculator">
+                <div class="calculator__heading-wrapper">
+                    <h3 class="calculator__heading">Mortage Calculator</h3>
+                    <button class="calculator__reset-button" onclick="clearAll()">Clear All</button>
                 </div>
-                <button class="calculator__button" id="submit" type="submit" > <img src="./assets/images/icon-calculator.svg" alt="calculator-icon" class="calculator__icon">Calculate Repayments</button>
-            </form>
-        </section>
+                <form class="calculator__form" id="calculator">
+                    <label for="amount" class="input__label">Mortage Amount
+                        <div class="input__wrapper">
+                            <div class="input__unit">$</div>
+                            <input type="number" id="input" name="amount"></input>
+                        </div>
+                    </label>
+                    <div class="input__term-wrapper">
+                        <label for="term" id="termlabel" class="input__label">Mortgage Term
+                            <div class="input__wrapper" id="term">
+                                <input type="number" id="input" min="1" max="40" name="term"></input>
+                                <div class="input__unit">years</div>
+                            </div>
+                        </label>
+                        <label for="rate" id="ratelabel" class="input__label"> Interest Rate
+                            <div class="input__wrapper" id="rate">
+                                <input type="number" step="0.01" id="input" name="rate"></input>
+                                <div class="input__unit">%</div>
+                            </div>
+                        </label>
+                    </div>
 
-        <!-- results -->
-        <section class="results">
-            <img src="./assets/images/illustration-empty.svg" alt="payment-placeholder-illustration">
-            <h3 class="results__heading">Results shown here</h3>
-            <p class="results__instructions">Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
-            <p class="results__payment"></p>
+                    <!-- radio buttons -->
+                    <div class="calculator__mortgage-type-wrapper">
+                        <label class="input__label">Mortage Type</label>
+
+                        <div class="input__radio-wrapper ">
+                            <label for="radio" class="input__radio-label">
+                                <input class="calculator__radio-input" type="radio" name="type" value="repayment"
+                                    id="repayment"> Repayment</input>
+                            </label>
+                        </div>
+
+                        <div class="input__radio-wrapper">
+                            <label for="radio" class="input__radio-label">
+                                <input class="calculator__radio-input" type="radio" name="type" value="interest"
+                                    id="interest"> Interest Only</input>
+                            </label>
+                        </div>
+
+                    </div>
+                    <button class="calculator__button" id="submit" type="submit"> <img
+                            src="./assets/images/icon-calculator.svg" alt="calculator-icon"
+                            class="calculator__icon">Calculate Repayments</button>
+                </form>
+            </div>
+
+            <!-- results -->
+            <div class="results">
+                <div class="results__placeholder-wrapper">
+                    <img src="./assets/images/illustration-empty.svg" alt="payment-placeholder-illustration">
+                </div>
+                <div class="results__heading-wrapper">
+                    <h3 class="results__heading">Results shown here</h3>
+                    <p class="results__instructions">Complete the form and click "calculate repayments" to see what your
+                        monthly
+                        repayments would be.</p>
+                </div>
+                <div class="results__display-wrapper none">
+                    <div class="results__repayment-wrapper">
+                        <p class="results__label">Your monthly repayments</p>
+                        <p class="results__payment"></p>
+                        <hr class="results__divider">
+                        </hr>
+                    </div>
+                    <div class="results__repayment-wrapper">
+                        <p class="results__label">Total you'll repay over the term</p>
+                        <p class="results__total"></p>
+                    </div>
+                    <div class="results__interest-wrapper none">
+                        <p class="results__label">Interest Only</p>
+                        <p class="results__interest-only"></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </body>

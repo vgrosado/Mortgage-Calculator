@@ -4,7 +4,10 @@ const inp = document.querySelectorAll("#input");
 const radioInp = document.querySelectorAll('input[name="type"]');
 const form = document.querySelector(".calculator__form");
 const submit = document.getElementById("submit");
-const results = document.querySelector(".results");
+const results = document.querySelector(".results__payment");
+const resultWrapper = document.querySelector(".results");
+const placeholder = document.querySelector(".results__placeholder-wrapper");
+const display = document.querySelector(".results__display-wrapper");
 
 //convert input node into an iteratable array
 let radios = Array.from(radioInp);
@@ -22,7 +25,6 @@ inputs.forEach((input) => {
     const parent = input.parentElement;
     const label = parent.parentElement;
     const unit = parent.getElementsByClassName('input__unit')[0];
-    
     input.addEventListener("input", (event) => {
         const val = event.target.value;
         checkInputs(val, parent, label, unit); // Validate in real-time
@@ -74,7 +76,14 @@ form.addEventListener("submit", (event) => {
         formData.forEach((value, key) => {
             formObject[key] = value;
         });
-        
+
+        if (!formObject) {
+            return;
+        } else {
+            placeholder.classList.add("none");
+            display.classList.remove("none")
+        }
+
         calculateMortgage(formObject); // Pass formObject to mortgage calculation
     }
 });
@@ -148,10 +157,45 @@ inputs.forEach((input) => {
 })
 
 function createPayment(mortgage) {
-    const payment = document.querySelector(".results__payment")
-    payment.innerText = mortgage.monthly;
-    results.appendChild(payment)
+    const payment = document.querySelector(".results__payment");
+    const total = document.querySelector(".results__total");
+    const interestOnlyWrapper = document.querySelector(".results__interest-wrapper");
+    const interestOnly = document.querySelector(".results__interest-only");
+    const repaymentWrapper = document.querySelectorAll(".results__repayment-wrapper");
+    const instructions = document.querySelector(".results__instructions");
+    const resultsHeading = document.querySelector(".results__heading");
+    const repayWrappers = Array.from(repaymentWrapper);  // Convert NodeList to array
+
+    // Update results heading and instructions
+    resultWrapper.classList.add("--justify-start")
+    resultsHeading.innerText = "Your results";
+    resultsHeading.classList.add("--text-left");
+    instructions.innerText = 'Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again';
+    instructions.classList.add("--text-left");
+
+
+    if (mortgage.type !== "interest") {
+        // Ensure the repayment section is shown
+        repayWrappers.forEach(wrapper => {
+            wrapper.classList.remove("none");  // Show repayment wrappers
+        });
+        interestOnlyWrapper.classList.add("none");  // Hide interest-only wrapper
+
+        // Display the calculated repayment values
+        payment.innerText = mortgage.monthly;
+        total.innerText = mortgage.total;
+    } else {
+        // Hide the repayment sections for interest-only mortgage
+        repayWrappers.forEach(wrapper => {
+            wrapper.classList.add("none");  // Hide repayment wrappers
+        });
+        interestOnlyWrapper.classList.remove("none");  // Show interest-only wrapper
+
+        // Display the interest-only payment
+        interestOnly.innerText = mortgage.interest;
+    }
 }
+
 
 function calculateMortgage(formObj) {
     console.log(formObj)
@@ -184,15 +228,14 @@ function calculateMortgage(formObj) {
     const convertPayment = Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
     })
 
     //repayment object
     let repayment = {
         monthly: convertPayment.format(monthlyPayment),
         total: convertPayment.format(monthlyPayment * months),
-        interest: convertPayment.format(interestOnly)
+        interest: convertPayment.format(interestOnly),
+        type: formObj.type
     }
 
     createPayment(repayment)
